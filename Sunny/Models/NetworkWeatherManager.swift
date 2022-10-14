@@ -30,19 +30,7 @@ class NetworkWeatherManager {
         performRequest(withURLSrting: urlString)
     }
     
-//    func fetchCurrentWeather(forLatitude city: String) {
-//        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKey)&units=metric"
-//        performRequest(withURLSrting: urlString)
-//    }
-//
-//
-//    func fetchCurrentWeather(forLatitude: CLLocationDegrees, forLongitude: CLLocationDegrees) {
-//        let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(forLatitude)&lon=\(forLongitude)&appid=\(apiKey)&units=metric"
-//        performRequest(withURLSrting: urlString)
-//    }
-//
-//
-     fileprivate func performRequest(withURLSrting urlString: String) {
+    fileprivate func performRequest(withURLSrting urlString: String) {
         guard let url = URL(string: urlString) else { return }
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: url) { data, response, error in
@@ -53,7 +41,6 @@ class NetworkWeatherManager {
             }
         }
         task.resume()
-        
     }
     
     fileprivate func parseJSON(withData data: Data) -> CurrentWeather? {

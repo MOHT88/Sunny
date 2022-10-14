@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var feelsLikeTemperatureLabel: UILabel!
     
-    
     var networkWeatherManager = NetworkWeatherManager()
     lazy var locationManager: CLLocationManager = {
         let lm = CLLocationManager()
@@ -29,7 +28,6 @@ class ViewController: UIViewController {
     @IBAction func searchPressed(_ sender: UIButton) {
         self.presentSearchAlertController(withTitle: "Enter city name", message: nil, style: .alert) { [unowned self] city in
             self.networkWeatherManager.fetchCurrentWeather(forRequestType: .cityName(city: city))
-            
         }
     }
     
@@ -43,7 +41,6 @@ class ViewController: UIViewController {
             locationManager.requestLocation()
         }
     }
-    
     
     func updateInterface(weather: CurrentWeather) {
         DispatchQueue.main.async {
